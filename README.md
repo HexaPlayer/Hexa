@@ -17,16 +17,19 @@ pull in folders that Android skips, so a library of FLAC, ALAC, APE or DSD files
 playable without converting anything first.
 
 It is built around one idea: the player should hand audio to the device as directly as
-the device allows, and otherwise stay quiet. Where a phone supports a direct output path,
-Hexa uses it; where it doesn't, Hexa plays through the normal mixer rather than pretending
-otherwise. The settings show what your phone actually did.
+the device allows, and otherwise stay quiet. Where a phone supports a direct output path —
+**Direct Thread** or **MMAP Exclusive** — Hexa uses it to play high-resolution files at
+their own rate and depth. Where it doesn't, Hexa plays through the normal mixer rather than
+pretending otherwise. The settings show what your phone actually did.
 
 ## Features
 
 - **Plays almost anything.** A built-in decoder handles FLAC, ALAC, APE, WavPack, AIFF,
   Opus, AAC, MP3 and DSD, with Android's own decoder as a fallback.
-- **Direct output where supported.** On phones that allow it, audio skips the system mixer
-  instead of being resampled on the way out.
+- **High-resolution output.** On supported devices Hexa plays through a **Direct Thread**
+  or **MMAP Exclusive** path, which takes the system mixer out of the signal path. Your
+  music reaches the device at its own sample rate and bit depth instead of being resampled
+  on the way out.
 - **Honest output settings.** Sample rate and bit depth are chosen per track, and the
   screen tells you what is really playing rather than what was asked for.
 - **A library that matches how you think.** Songs, albums, artists and folders, with search
@@ -53,9 +56,9 @@ uninstall the old app first. That is a one-time step.
 
 ## A note on sound quality
 
-What Hexa can do depends on your phone, not on the app. Some devices allow direct output at
-high sample rates and bit depths; others cap it at 48 kHz, and some only expose a path the
-system mixer resamples anyway. The output screen in Settings reports exactly what happened
+What Hexa can do depends on your phone, not on the app. Some devices allow Direct Thread or
+MMAP Exclusive output at high sample rates and bit depths; others cap it at 48 kHz, and some
+only expose a path the system mixer resamples anyway. The output screen in Settings reports exactly what happened
 for the track you are playing, so you can see whether the limit is the phone or the file.
 
 ## Feedback
