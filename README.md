@@ -1,12 +1,9 @@
-# Hexa
+# Hexa 3.0 — Renaissance
 
-A music player for Android that hands your audio to the hardware instead of the mixer.
+A music player for Android that hands your audio to the hardware instead of the mixer,
+and stays out of your way while it does it.
 
 **[Support, feedback and bug reports → Telegram](https://t.me/HexaPlayerSupport)**
-
-This is the first beta. If something sounds wrong, skips, or an album shows up oddly,
-please say so in the group — the phone model and what you played is usually enough to
-track it down.
 
 ---
 
@@ -16,44 +13,61 @@ Most Android players hand your music to the system mixer, and the mixer resample
 whatever the phone happens to be doing at that moment. A 24-bit / 96 kHz file quietly comes
 out at 48 kHz, and nothing on screen tells you it happened.
 
-Hexa can take a different route. On supported devices it plays through a **Direct Thread**
-or **MMAP Exclusive** path that steps around the mixer entirely, so the file reaches the
-hardware at its own sample rate and bit depth. No hidden resampling, no silent conversion
-to whatever the system felt like today.
+Hexa takes a different route. On supported devices it plays through a **Direct Path** or
+**MMAP Exclusive** output that steps around the mixer entirely, so the file reaches the
+hardware at its own rate and bit depth. No hidden resampling, no silent conversion to
+whatever the system felt like today.
 
 That is the whole point of the app. Everything else exists so this part can work.
 
-And when a phone doesn't allow it, Hexa says so. The output screen always reports the path,
-rate and depth that were **actually used** for the track playing — not the ones that were
-requested. If your phone caps direct output at 48 kHz, you will see 48 kHz and know it is
-the phone's limit rather than guessing at the player's.
+And when a phone doesn't allow it, Hexa says so. The player always reports the path, rate and
+depth that were **actually used** for the track playing — not the ones that were requested.
+If your phone caps direct output at 48 kHz, you will see 48 kHz and know it is the phone's
+limit rather than guessing at the player's.
 
-## What it is
+## A robust audio engine
 
-Hexa plays your local music files. It reads what Android already indexes, and can also pull
-in folders that Android skips, so a library of FLAC, ALAC, APE or DSD files is playable
-without converting anything first.
+The part you never see is the part that has to be right.
 
-It is built around one idea: hand audio to the device as directly as the device allows, and
-otherwise stay quiet. Where a phone supports a direct path, Hexa uses it; where it doesn't,
-Hexa plays through the normal mixer rather than pretending otherwise.
+- **Four output paths, named for what they are** — DIRECT, MMAP, MIXER and SHARED — with the
+  one in use shown on the player, per track
+- **It steps down by itself.** If the chosen path cannot be opened, Hexa falls to the next one
+  and updates the setting to match, so the screen never claims something the device refused.
+  A choice you made by hand is never overridden — only a failure moves it
+- **Rates the device really has.** The rate list is filtered to what the phone's own output
+  port declares, and bit depth steps from 32-bit to 24 to 16 rather than dropping the format
+  altogether
+- **Match the source, or fix the rate.** Play each file at its own rate — the bit-perfect path
+  — or pin one rate for everything
+- **Its own decoder.** FFmpeg is built into the APK, so FLAC, ALAC, APE, WavPack, AIFF, DSD,
+  Opus, AAC, MP3 and WMA all play, including the formats Android's scanner skips. Android's
+  decoder is the fallback, and the player tells you which one is working
+- **Tags read from the file**, not from a database someone else filled in — so an APE or DSF
+  file shows its real title, artist and album
+- **Plays nicely with calls.** It pauses for a call and picks up when you ask it to
+- **Careful with the battery.** No polling, no wake-ups while paused, and the display only
+  redraws what changed
 
-## Features
+## A sleek, minimal interface
 
-- **High-resolution output.** Direct Thread or MMAP Exclusive on supported devices, taking
-  the system mixer out of the signal path so music plays at its own rate and depth.
-- **Honest output reporting.** The rate, bit depth and output path shown are the ones really
-  in use, per track — so you always know what reached the hardware.
-- **Plays almost anything.** A built-in decoder handles FLAC, ALAC, APE, WavPack, AIFF,
-  Opus, AAC, MP3 and DSD, with Android's own decoder as a fallback.
-- **A library that matches how you think.** Songs, albums, artists and folders, with search
-  across all of it.
-- **Full artwork.** Cover art is shown at full resolution in the player, uncropped.
-- **Folders Android ignores.** Add a folder and Hexa will index formats the system scanner
-  skips.
-- **Material 3 design**, with light and dark themes that follow your system colours.
+The interface is built to disappear. No chrome competing with the cover, no settings you have
+to hunt for, nothing moving unless you moved it.
+
+- **The cover, the whole cover.** Artwork is drawn at full size and never cropped, over a
+  blurred wash taken from the artwork itself
+- **Controls that look like controls.** A seek bar you can scrub, transport buttons that stay
+  white, and one accent colour you choose — which can tint the seek bar if you want it to
+- **Pull down to close the player**, or use the arrow; either way it leaves the same way it
+  arrived
+- **Home that changes daily.** Daily shuffle, Deep cuts, Rediscover and Your rotation, built
+  once a day, with what you played recently right below
+- **A library that holds still.** Tracks, albums, artists, folders and playlists, each with
+  its own sorting, a draggable scrollbar, and a search that highlights what matched
+- **Folders Android ignores.** Point Hexa at a folder and it indexes what the system scanner
+  skipped; hide a folder without forgetting it
+- **Light and dark**, both designed rather than inverted
 - **No account, no tracking, no internet.** The app does not request internet permission at
-  all — it cannot send anything anywhere.
+  all — it cannot send anything anywhere
 
 ## Install
 
@@ -70,14 +84,15 @@ uninstall the old app first. That is a one-time step.
 
 ## A note on what your phone allows
 
-What Hexa can do depends on the phone, not on the app. Some devices allow Direct Thread or
-MMAP Exclusive output at high sample rates and bit depths; others cap it at 48 kHz, and some
-only expose a path the system mixer resamples anyway. Hexa does not hide that — the output
-screen shows exactly what happened for the track you are playing.
+What Hexa can do depends on the phone, not on the app. Some devices allow Direct Path or MMAP
+Exclusive output at high sample rates and bit depths; others cap it at 48 kHz, and some only
+expose a path the system mixer resamples anyway. Hexa does not hide that — the player shows
+exactly what happened for the track you are playing, and Diagnostics lists what the phone's
+audio policy declares for each path.
 
 ## Feedback
 
 Bugs, requests and "this sounds wrong on my phone" all belong in the
 [Telegram group](https://t.me/HexaPlayerSupport). When reporting a playback problem, the
-Output settings page is the most useful thing to include — it says which path was used and
-at what rate.
+Diagnostics page is the most useful thing to include — it says which path was used and at
+what rate.
