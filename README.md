@@ -43,6 +43,9 @@ Hexa takes a different route. On supported devices it plays through a **Direct P
 hardware at its own rate and bit depth. No hidden resampling, no silent conversion to
 whatever the system felt like today.
 
+Plug in a USB DAC and the same untouched stream goes out to it — no mixer, no resampling
+on the way (Requires capable Audio HAL).
+
 That is the whole point of the app. Everything else exists so this part can work.
 
 And when a phone doesn't allow it, Hexa says so. The player always reports the path, rate and
