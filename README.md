@@ -69,9 +69,6 @@ The part you never see is the part that has to be right.
   decoder is the fallback, and the player tells you which one is working
 - **Tags read from the file**, not from a database someone else filled in — so an APE or DSF
   file shows its real title, artist and album
-- **Plays nicely with calls.** It pauses for a call and picks up when you ask it to
-- **Careful with the battery.** No polling, no wake-ups while paused, and the display only
-  redraws what changed
 
 ## A sleek, minimal interface
 
@@ -82,8 +79,6 @@ to hunt for, nothing moving unless you moved it.
   blurred wash taken from the artwork itself
 - **Controls that look like controls.** A seek bar you can scrub, transport buttons that stay
   white, and one accent colour you choose — which can tint the seek bar if you want it to
-- **Pull down to close the player**, or use the arrow; either way it leaves the same way it
-  arrived
 - **Home that changes daily.** Daily shuffle, Deep cuts, Rediscover and Your rotation, built
   once a day, with what you played recently right below
 - **A library that holds still.** Tracks, albums, artists, folders and playlists, each with
