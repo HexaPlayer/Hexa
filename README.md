@@ -7,6 +7,26 @@ and stays out of your way while it does it.
 
 ---
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/home.png" width="240"><br><sub><b>Home</b> — made for you, daily</sub></td>
+    <td align="center"><img src="docs/screenshots/library-tracks.png" width="240"><br><sub><b>Library</b> — every track, sortable</sub></td>
+    <td align="center"><img src="docs/screenshots/library-albums.png" width="240"><br><sub><b>Albums</b> — by release, or by title</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/now-playing-direct.png" width="240"><br><sub><b>Direct Path</b> — 96 kHz ALAC, 24-bit</sub></td>
+    <td align="center"><img src="docs/screenshots/now-playing-mmap.png" width="240"><br><sub><b>MMAP Exclusive</b> — 48 kHz, 24-bit</sub></td>
+    <td align="center"><img src="docs/screenshots/track-info.png" width="240"><br><sub><b>Track info</b> — read from the file</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/search.png" width="240"><br><sub><b>Search</b> — matches highlighted</sub></td>
+    <td align="center"><img src="docs/screenshots/playback-output.png" width="240"><br><sub><b>Playback &amp; Output</b> — paths and depths</sub></td>
+    <td align="center"><img src="docs/screenshots/diagnostics.png" width="240"><br><sub><b>Diagnostics</b> — what the device allows</sub></td>
+  </tr>
+</table>
+
 ## High-resolution output, not high-resolution marketing
 
 Most Android players hand your music to the system mixer, and the mixer resamples it to
