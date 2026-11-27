@@ -23,7 +23,7 @@ and stays out of your way while it does it.
   <tr>
     <td align="center"><img src="docs/screenshots/ui-customisation.png" width="240"><br><sub><b>UI &amp; Customisation</b> — accent, font, icon</sub></td>
     <td align="center"><img src="docs/screenshots/album.png" width="240"><br><sub><b>Album</b> — cover, year, tracklist</sub></td>
-    <td align="center"><img src="docs/screenshots/library-folders.png" width="240"><br><sub><b>Folders</b> — what gets scanned</sub></td>
+    <td align="center"><img src="docs/screenshots/library-folders.png" width="240"><br><sub><b>Library</b> — folders, rescan, jump</sub></td>
   </tr>
   <tr>
     <td align="center"><img src="docs/screenshots/search.png" width="240"><br><sub><b>Search</b> — matches highlighted</sub></td>
