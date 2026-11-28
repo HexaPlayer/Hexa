@@ -1,4 +1,4 @@
-# Hexa 3.0 — Renaissance
+# Hexa 3.1 — Renaissance
 
 A music player for Android that hands your audio to the hardware instead of the mixer,
 and stays out of your way while it does it.
@@ -86,6 +86,9 @@ to hunt for, nothing moving unless you moved it.
   once a day, with what you played recently right below
 - **A library that holds still.** Tracks, albums, artists, folders and playlists, each with
   its own sorting, a draggable scrollbar, and a search that highlights what matched
+- **It follows what is playing.** Open the player and the list behind it moves to the track
+  that is playing, so closing the player leaves you where you left off. A switch in Library
+  settings turns it off
 - **Folders Android ignores.** Point Hexa at a folder and it indexes what the system scanner
   skipped; hide a folder without forgetting it
 - **Light and dark**, both designed rather than inverted
